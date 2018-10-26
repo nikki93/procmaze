@@ -1,4 +1,5 @@
 local classic = require "https://raw.githubusercontent.com/rxi/classic/master/classic.lua"
+local letters = require "./letters"
 
 Object = classic
 
@@ -180,5 +181,64 @@ function Maze.makeFresh(width, height)
       end
     end
   end
+
+  local function filler(ox, oy)
+    local function fill(x, y)
+      maze[x + ox][y + oy].visited = true
+    end
+    return fill
+  end
+
+  local fill = filler(2, 2)
+  fill(0, 0)
+  fill(0, 1)
+  fill(0, 2)
+  fill(0, 3)
+  fill(0, 4)
+  fill(1, 0)
+  fill(2, 0)
+  fill(1, 2)
+  fill(2, 2)
+  fill(1, 4)
+  fill(2, 4)
+
+  local fill = filler(6, 2)
+  fill(0, 0)
+  fill(4, 0)
+  fill(1, 1)
+  fill(3, 1)
+  fill(0, 4)
+  fill(4, 4)
+  fill(1, 3)
+  fill(3, 3)
+  fill(2, 2)
+
+  local fill = filler(12, 2)
+  fill(0, 0)
+  fill(1, 0)
+  fill(2, 0)
+  fill(0, 1)
+  fill(2, 1)
+  fill(0, 2)
+  fill(1, 2)
+  fill(2, 2)
+  fill(0, 3)
+  fill(0, 4)
+
+  local fill = filler(16, 2)
+  fill(0, 0)
+  fill(1, 0)
+  fill(2, 0)
+  fill(0, 1)
+  fill(2, 1)
+  fill(0, 2)
+  fill(2, 2)
+  fill(0, 3)
+  fill(2, 3)
+  fill(0, 4)
+  fill(1, 4)
+  fill(2, 4)
+
+
   return maze
 end
