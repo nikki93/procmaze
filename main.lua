@@ -17,7 +17,9 @@ function love.load()
 end
 
 function love.draw()
-  Game.maze:draw(10, 10, SIZE)
+  local ox = 0.5 * (love.graphics.getWidth() - (WIDTH * SIZE + LINE_WIDTH))
+  local oy = 0.5 * (love.graphics.getHeight() - (HEIGHT * SIZE + LINE_WIDTH))
+  Game.maze:draw(ox, oy, SIZE)
 end
 
 local interval = 0.01
